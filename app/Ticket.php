@@ -39,4 +39,9 @@ class Ticket extends Model
 	{
     	return $this->user_id;
 	}
+
+	public function comments()
+	{
+		return $this->hasMany('App/Comment', 'post_id');
+	}
 }
