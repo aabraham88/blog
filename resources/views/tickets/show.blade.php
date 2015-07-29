@@ -23,6 +23,14 @@
         <div class="clearfix"></div>
     </div>
 
+    @foreach($comments as $comment)
+        <div class="well well bs-component">
+            <div class="content">
+                {!! $comment->content !!}
+            </div>
+        </div>
+    @endforeach
+
     <div class="well well bs-component">
         <form class="form-horizontal" method="post" action="/comment">
 

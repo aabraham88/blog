@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Comment;
 use Illuminate\Http\Request;
-use App\Http\Requests\CommentsFormRequest;
+use App\Http\Requests\CommentFormRequest;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
