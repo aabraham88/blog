@@ -12,6 +12,7 @@
 */
 
 Route::get('/', 'PagesController@home');
+Route::get('/home', 'PagesController@home');
 Route::get('/about', 'PagesController@about');
 Route::get('/contact', 'TicketsController@create');
 Route::post('/contact', 'TicketsController@store');
@@ -20,18 +21,27 @@ Route::get('/tickets/{slug?}', 'TicketsController@show');
 Route::get('/tickets/{slug?}/edit', 'TicketsController@edit');
 Route::post('/tickets/{slug?}/edit', 'TicketsController@update');
 Route::post('/tickets/{slug?}/delete', 'TicketsController@destroy');
-Route::get('sendmail', function (){
-	$data = array('name' => "Learning Laravel",);
+// Route::get('sendmail', function (){
+// 	$data = array('name' => "Learning Laravel",);
 
-	Mail::send('emails.welcome', $data, function($message){
+// 	Mail::send('emails.welcome', $data, function($message){
 
-		$message->from('alejandro_abraham@tickets.com', 'Learning Laravel');
-		$message->to('alejandro_abraham@me.com')->subject('Learning Laravel test email');
-	});
-	return "Your email has been sent succesfully";
-});
+// 		$message->from('alejandro_abraham@tickets.com', 'Learning Laravel');
+// 		$message->to('alejandro_abraham@me.com')->subject('Learning Laravel test email');
+// 	});
+// 	return "Your email has been sent succesfully";
+// });
 Route::post('/comment', 'CommentsController@newComment');
 
-//Autenticación
+//-----------------------Autenticación-----------------------------
+
+//Registracion
 Route::get('users/register', 'Auth\AuthController@getRegister');
 Route::post('users/register', 'Auth\AuthController@postRegister');
+
+//Logout
+Route::get('users/logout', 'Auth\AuthController@getLogout');
+
+//Login
+Route::get('users/login', 'Auth\AuthController@getLogin');
+Route::post('users/login', 'Auth\AuthController@postLogin');

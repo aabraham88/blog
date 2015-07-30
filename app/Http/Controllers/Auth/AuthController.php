@@ -23,6 +23,10 @@ class AuthController extends Controller
 
     use AuthenticatesAndRegistersUsers, ThrottlesLogins;
 
+    //Para redirigir a otra pagina en lugar de home, luego de loguearse o registrarse, habilitar la variable:
+    //protected $redirectPath = '/yourPath';
+    protected $loginPath = '/users/login';
+
     /**
      * Create a new authentication controller instance.
      *
