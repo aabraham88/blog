@@ -31,3 +31,7 @@ Route::get('sendmail', function (){
 	return "Your email has been sent succesfully";
 });
 Route::post('/comment', 'CommentsController@newComment');
+
+//Autenticación
+Route::get('users/register', 'Auth\AuthController@getRegister');
+Route::post('users/register', 'Auth\AuthController@postRegister');
