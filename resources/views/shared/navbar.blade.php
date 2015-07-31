@@ -19,9 +19,18 @@
                 <li><a href="/about">About</a></li>
                 <li><a href="/contact">Carga un ticket</a></li>
                 <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Miembros <span class="caret"></span></a>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                    @if(Auth::check())
+                        {{ Auth::user()->name }}
+                    @else
+                        Miembros 
+                    @endif
+                    <span class="caret"></span></a>
                     <ul class="dropdown-menu" role="menu">
                         @if (Auth::check())
+                            @if(Auth::user()->hasRole('Manager'))
+                                <li><a href="/admin">Admin</a></li>
+                            @endif
                             <li><a href="/users/logout">Logout</a></li>
                         @else
                             <li><a href="/users/register">Register</a></li>

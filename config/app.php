@@ -39,7 +39,8 @@ return [
     |
     */
 
-    'timezone' => 'UTC',
+   // 'timezone' => 'UTC',
+    'timezone' => 'America/Argentina/Buenos_Aires', //seteado para la hora de argentina
 
     /*
     |--------------------------------------------------------------------------
@@ -144,6 +145,7 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
         Collective\Html\HtmlServiceProvider::class, //Agregado por Alejandro
+        'Zizaco\Entrust\EntrustServiceProvider', //Agregado por Alejandro para manejar roles y permisos
 
     ],
 
@@ -194,6 +196,7 @@ return [
         'View'      => Illuminate\Support\Facades\View::class,
         'Form'      => Collective\Html\FormFacade::class, //Agregado por Alejandro
         'Html'      => Collective\Html\HtmlFacade::class, //Agregado por Alejandro
+        'Entrust'   => 'Zizaco\Entrust\EntrustFacade', //Agregado por Alejandro para manejar roles y permisos
 
     ],
 

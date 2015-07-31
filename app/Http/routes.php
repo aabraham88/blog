@@ -45,3 +45,25 @@ Route::get('users/logout', 'Auth\AuthController@getLogout');
 //Login
 Route::get('users/login', 'Auth\AuthController@getLogin');
 Route::post('users/login', 'Auth\AuthController@postLogin');
+
+//-----------------------Fin Autenticación-----------------------------
+
+Route::group(array('prefix'=>'admin', 'namespace'=>'Admin', 'middleware'=> 'manager'), function(){
+	//Admin dashboard
+	Route::get('/', 'PagesController@home');
+	//ver usuarios
+	Route::get('users', 'UsersController@index');
+	//administrar roles
+	Route::get('roles', 'RolesController@index');
+    Route::get('roles/create', 'RolesController@create');
+    Route::post('roles/create', 'RolesController@store');
+    //asignar roles a usuarios
+    Route::get('users/{id?}/edit', 'UsersController@edit');
+	Route::post('users/{id?}/edit','UsersController@update');
+	//administrar posts
+	Route::get('posts', 'PostsController@index');
+	Route::get('posts/create', 'PostsController@create');
+	Route::post('posts/create', 'PostsController@store');
+	Route::get('posts/{id?}/edit', 'PostsController@edit');
+	Route::post('posts/{id?}/edit','PostsController@update');
+});
