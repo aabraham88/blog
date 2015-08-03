@@ -9,9 +9,9 @@ class Comment extends Model
     //Respuestas a tickets
     protected $guarded = ['id'];
 
-	public function ticket()
+	public function post()
 	{
-		return $this->belongsTo('App\Ticket');
+		return $this->morphTo();
 	}
 
 }
